@@ -1,0 +1,9 @@
+# Project dependencies
+.cache
+node_modules
+yarn-error.log
+
+# Build directory
+# Committing this for gh-pages
+/public
+.DS_Store
