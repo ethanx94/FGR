@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: 'FGR',
   siteMetadata: {
     title: 'Gatsby Default Starter',
   },
