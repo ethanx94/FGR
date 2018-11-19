@@ -8,41 +8,42 @@ const Person = ({ data: {
   died,
   buried,
   married,
+  sex,
   notes,
 }, type }) => (
   <table>
-    <tr>
-      <td colSpan="2">{
-        type === "Husband" && `Husband \n Given name(s)`
-      }</td>
+    <tr className="header">
+      <td colSpan="2">{`${type[0].toUpperCase() + type.slice(1)} Given name(s)`}</td>
       <td>{givenName}</td>
       <td>Last Name</td>
       <td>{lastName}</td>
     </tr>
     <tr>
-      <td className="center">Sex</td>
-      <td>Born</td>
+      {type === "children"
+      ? <td className="center label">Sex</td>
+      : <td className="center label no-bottom"></td>}
+      <td className="label">Born</td>
       <td>{born.date}</td>
-      <td>Place</td>
+      <td className="label">Place</td>
       <td>{born.place}</td>
     </tr>
     <tr>
-      <td className="center" rowSpan="5">M</td>
-      <td>Died</td>
+      <td className="center" rowSpan="5">{sex}</td>
+      <td className="label">Died</td>
       <td>{died.date}</td>
-      <td>Place</td>
+      <td className="label">Place</td>
       <td>{died.date}</td>
     </tr>
     <tr>
-      <td>Buried</td>
+      <td className="label">Buried</td>
       <td>{buried.date}</td>
-      <td>Place</td>
+      <td className="label">Place</td>
       <td>{buried.date}</td>
     </tr>
     <tr>
-      <td>Married</td>
+      <td className="label">Married</td>
       <td>{married.date}</td>
-      <td>Place</td>
+      <td className="label">Place</td>
       <td>{married.date}</td>
     </tr>
     <tr>
@@ -50,7 +51,7 @@ const Person = ({ data: {
       <td colSpan="3"></td>
     </tr>
     <tr>
-      <td colSpan="4"></td>
+      <td colSpan="4" style={{height: "37px"}}></td>
     </tr>
   </table>
 );

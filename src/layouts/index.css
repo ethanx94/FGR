@@ -1,11 +1,6 @@
 table {
-  width:500px;
+  width:1000px;
   height:300px;
-  position:fixed;
-  margin-left:-250px; /* half of width */
-  margin-top:-150px;  /* half of height */
-  top:50%;
-  left:50%;
 }
 h3 {
   text-align: center
@@ -13,6 +8,18 @@ h3 {
 .center {
   text-align: center
 }
-table, th, td {
+table {
+  border-collapse: collapse;
+}
+.no-bottom {
+  border-bottom: hidden;
+}
+.header {
+  border: 2px solid black;
+}
+.label {
+  width: 50px
+}
+th, td {
   border: 1px solid black;
 }

@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: 'FGR',
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Family Group Record',
   },
   plugins: ['gatsby-plugin-react-helmet'],
 }

@@ -3,8 +3,12 @@ import Person from '../components/person';
 
 const IndexPage = () => (
   <div>
-    <Person data={data.husband} type="Husband" />
-    {/* {data.children.map(<Person />)}; */}
+    {Object.keys(data).map(
+      d => !Array.isArray(data[d]) 
+        ? <Person data={data[d]} type={d} key={d} />
+        : data[d].map(child =>
+            <Person data={child} type={'children'} />)
+      )}
   </div>
 );
 
@@ -31,24 +35,69 @@ const data = {
       "notes": "1850 Frlo IL next to Wm A King + Siblings near Burker + Bf. Ramson"
   },
   "wife": {
-      "givenName": "",
-      "maidenName": "",
-      "born": "Next Step Webs, Inc.",
-      "died": "12345 Sunny Road",
-      "buried": "Sunnyville, TX 12345",
-      "married": "Sunnyville, TX 12345",
-      "notes": "Sunnyville, TX 12345"
+      "givenName": "Anice/Anis/Annis",
+      "maidenName": "Lee",
+      "born": {
+        "date":"1779/1783",
+        "place": "NC",
+      },
+      "died": {
+        "date":"1866",
+        "place": "",
+      },
+      "buried": {
+        "date":"",
+        "place": "",
+      },
+      "married": {
+        "date":"",
+        "place": "",
+      },
+      "notes": ""
   },
   "children": [{
-      "sex": "",
-      "givenName": "",
-      "lastName": "",
-      "born": "Next Step Webs, Inc.",
-      "died": "12345 Sunny Road",
-      "buried": "Sunnyville, TX 12345",
-      "married": "Sunnyville, TX 12345",
-      "notes": "Sunnyville, TX 12345"
-  }]
+      "sex": "F",
+      "givenName": "Elizabeth",
+      "lastName": "Hutson",
+      "born": {
+        "date":"c 1803/04",
+        "place": "TN or IL ⊕ John Sandusky",
+      },
+      "died": {
+        "date":"c 1805",
+        "place": "",
+      },
+      "buried": {
+        "date":"",
+        "place": "",
+      },
+      "married": {
+        "date":"c 1820/21",
+        "place": "",
+      },
+      "notes": ""
+  },{
+    "sex": "M",
+    "givenName": "Innes",
+    "lastName": "Mcclerrin",
+    "born": {
+      "date":"May 1834",
+      "place": "KY",
+    },
+    "died": {
+      "date":"",
+      "place": "",
+    },
+    "buried": {
+      "date":"",
+      "place": "",
+    },
+    "married": {
+      "date":"1862",
+      "place": "",
+    },
+    "notes": ""
+}]
 };
 
 export default IndexPage
