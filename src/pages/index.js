@@ -7,13 +7,15 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Family Group Record" />
-    {Object.keys(data).map(
-      (d, idx) =>
-      !Array.isArray(data[d]) 
-        ? <Person data={data[d]} type={d} key={idx} />
-        : data[d].map((child, childIdx) =>
-            <Person key={childIdx} data={child} type={'children'} />)
-      )}
+    <table className="table">
+      {Object.keys(data).map(
+        (d, idx) =>
+        !Array.isArray(data[d]) 
+          ? <Person data={data[d]} type={d} key={idx} />
+          : data[d].map((child, childIdx) =>
+              <Person key={childIdx} data={child} type={'children'} />)
+        )}
+      </table>
   </Layout>
 );
 
