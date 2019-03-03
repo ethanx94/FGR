@@ -1,15 +1,20 @@
 import React from 'react';
 import Person from '../components/person';
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+
 const IndexPage = () => (
-  <div>
+  <Layout>
+    <SEO title="Family Group Record" />
     {Object.keys(data).map(
-      d => !Array.isArray(data[d]) 
-        ? <Person data={data[d]} type={d} key={d} />
-        : data[d].map(child =>
-            <Person data={child} type={'children'} />)
+      (d, idx) =>
+      !Array.isArray(data[d]) 
+        ? <Person data={data[d]} type={d} key={idx} />
+        : data[d].map((child, childIdx) =>
+            <Person key={childIdx} data={child} type={'children'} />)
       )}
-  </div>
+  </Layout>
 );
 
 const data = {
