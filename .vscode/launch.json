@@ -5,24 +5,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Gatsby Develop",
-      "type": "node",
+      "type": "chrome",
       "request": "launch",
-      "protocol": "inspector",
-      "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
-      "args": ["develop", "-p", "8000"],
-      "stopOnEntry": false,
-      "cwd": "${workspaceRoot}",
-      "preLaunchTask": null,
-      "runtimeExecutable": null,
-      "runtimeArgs": ["--nolazy"],
-      "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "gatsby:*"
-      },
-      "console": "integratedTerminal",
-      "sourceMaps": true,
-      "outFiles": []
-    }
+      "name": "Launch Chrome for Gatsby site",
+      "url": "http://localhost:8000",
+      "webRoot": "${workspaceFolder}",
+    },
   ]
 }

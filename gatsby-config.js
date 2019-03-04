@@ -1,3 +1,11 @@
+let activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+console.log(`Using environment config: '${activeEnv}'`)
+
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   pathPrefix: 'FGR',
   siteMetadata: {
@@ -18,6 +26,24 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'queries',
+        path: `${__dirname}/src/queries/`,
+      },
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        },
+        typeName: "GitHub",
+        fieldName: "github",
+        url: "https://api.github.com/graphql",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
